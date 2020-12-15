@@ -8,15 +8,33 @@ import kotlinx.android.synthetic.main.activity_main.*
 import pub.devrel.easypermissions.EasyPermissions
 import pub.devrel.easypermissions.EasyPermissions.PermissionCallbacks
 
-class MainActivity : Activity(), PermissionCallbacks{
+class MainActivity : Activity(),PermissionCallbacks {
     private val CROP_IMAGE_PATH = "/storage/emulated/0/PictureSelector_ 20200520_ 152627.JPEG"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        requireSomePermission()
-
-
+        image.showImage(this,applicationInfo,CROP_IMAGE_PATH)
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     fun rotate90(view: View?) {
         image.rotate90()
     }

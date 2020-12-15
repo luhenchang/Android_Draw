@@ -252,6 +252,8 @@ public class CorpToView extends ImageView {
         // 这里一定要是return true 不然也是无效的
         return true;
     }
+    int imWidth;
+    int imHeigth;
     /**
      * 按比例缩放图片
      *
@@ -260,14 +262,21 @@ public class CorpToView extends ImageView {
      * @param  hratio 比例
      * @return 新的bitmap
      */
-    private Bitmap scaleBitmap(Bitmap origin, float wratio,float hratio,int alpha) {
+    private Bitmap scaleBitmap(Context context,Bitmap origin, float wratio,float hratio,int alpha) {
         if (origin == null) {
             return null;
         }
         int width = origin.getWidth();
         int height = origin.getHeight();
+
+        int origWidth= px2dip(context,origin.getWidth());
+        int origHeight=px2dip(context,origin.getHeight());
+        imWidth=origWidth;
+        imHeigth=origHeight;
         Matrix matrix = new Matrix();
-        matrix.preScale(wratio, hratio);
+        matrix.preScale(origWidth*1.0f/(width), origHeight*1.0f/(height));
+
+
         Bitmap newBM = Bitmap.createBitmap(origin, 0, 0, width, height, matrix, false);
         if (newBM.equals(origin)) {
             return newBM;
@@ -308,25 +317,30 @@ public class CorpToView extends ImageView {
     public void showImage(Context context,ApplicationInfo applicationInfo, String picPath) {
         this.mImagePath = picPath;
         //本地和其手机内部的
-        int resID = getResources().getIdentifier("haha", "drawable", applicationInfo.packageName);
+        int resID = getResources().getIdentifier("wff", "drawable", applicationInfo.packageName);
         DisplayMetrics displayMetrics= getResources().getDisplayMetrics();
         int height=displayMetrics.heightPixels;
         int width=displayMetrics.widthPixels;
         // mBmpToCrop =  BitmapFactory.decodeResource(getResources(), resID);//BitmapFactory.decodeFile(mImagePath);
         Bitmap bitmap=  BitmapFactory.decodeResource(getResources(), resID);
-        int origWidth= bitmap.getWidth();
-        int origHeight=bitmap.getHeight();
-        if ((bitmap.getHeight()*1.5f<bitmap.getWidth())&&bitmap.getWidth()>width) {
-            mBmpToCrop = scaleBitmap(bitmap, ((width) / (origHeight * 1.0f)), width / (origHeight * 1.0f),90);
-        }else if(((bitmap.getHeight()*1.5f>=bitmap.getWidth())&&bitmap.getWidth()>width)||(bitmap.getWidth()*1.5f<bitmap.getHeight())){
-            mBmpToCrop = scaleBitmap(bitmap, ((width) / (origWidth * 1.0f)), width / (origWidth * 1.0f),0);
-        }else if(((bitmap.getHeight()*1.5f>=bitmap.getWidth())&&bitmap.getWidth()<width)||((bitmap.getWidth()*1.5f>=bitmap.getHeight())&&bitmap.getHeight()<height)){
-            mBmpToCrop = scaleBitmap(bitmap,1, 1,0);
-        }else{
-            mBmpToCrop = scaleBitmap(bitmap, ((width) / (origWidth * 1.0f)), width / (origWidth * 1.0f),0);
-
-        }
+        int origWidth= px2dip(context,bitmap.getWidth());
+        int origHeight=px2dip(context,bitmap.getHeight());
+        mBmpToCrop = scaleBitmap(context,bitmap,1, 1,0);
+//        if ((bitmap.getHeight()*1.5f<bitmap.getWidth())&&bitmap.getWidth()>width) {
+//            mBmpToCrop = scaleBitmap(bitmap, ((width) / (origHeight * 1.0f)), width / (origHeight * 1.0f),90);
+//        }else if(((bitmap.getHeight()*1.5f>=bitmap.getWidth())&&bitmap.getWidth()>width)||(bitmap.getWidth()*1.5f<bitmap.getHeight())){
+//            mBmpToCrop = scaleBitmap(bitmap, ((width) / (origWidth * 1.0f)), width / (origWidth * 1.0f),0);
+//        }else if(((bitmap.getHeight()*1.5f>=bitmap.getWidth())&&bitmap.getWidth()<width)||((bitmap.getWidth()*1.5f>=bitmap.getHeight())&&bitmap.getHeight()<height)){
+//            mBmpToCrop = scaleBitmap(bitmap,1, 1,0);
+//        }else{
+//            mBmpToCrop = scaleBitmap(bitmap, ((width) / (origWidth * 1.0f)), width / (origWidth * 1.0f),0);
+//
+//        }
         invalidate();
+    }
+    public static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
     }
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
@@ -356,8 +370,8 @@ public class CorpToView extends ImageView {
      */
     private void setClipRectDefaultPosition() {
         // 裁剪框默任宽高
-        final float CLIP_RECT_WIDTH = 200f;
-        final float CLIP_RECT_HEIGHT = 200f;
+        final float CLIP_RECT_WIDTH = imWidth;
+        final float CLIP_RECT_HEIGHT = imHeigth;
 
         // 使裁剪框一开始出现在图片的中心位置
         clipRect = new RectF();

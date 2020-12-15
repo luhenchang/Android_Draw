@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.LinearLayout
+<android.widget.RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,23 +7,7 @@
     android:background="@color/colorAccent"
     android:orientation="vertical">
 
-   <androidx.appcompat.widget.Toolbar
-       android:id="@+id/toolbar"
-       android:layout_width="360dp"
-       android:layout_height="56dp"
-       android:background="#BBC7CE">
-      <Button
-          android:text="旋转"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:onClick="rotate90"/>
 
-      <Button
-          android:text="裁剪"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:onClick="cut"/>
-   </androidx.appcompat.widget.Toolbar>
 
 
    <LinearLayout
@@ -56,13 +40,28 @@
    </LinearLayout>
 
 
+   <androidx.appcompat.widget.Toolbar
+       android:id="@+id/toolbar"
+       android:layout_width="360dp"
+       android:layout_height="56dp">
+      <Button
+          android:text="旋转"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:onClick="rotate90"/>
+
+      <Button
+          android:text="裁剪"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:onClick="cut"/>
+   </androidx.appcompat.widget.Toolbar>
 
 
 
+</android.widget.RelativeLayout>
 
-</android.widget.LinearLayout>
-
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<?xml version="1.0" encoding="utf-8"?>-->
 <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--    xmlns:tools="http://schemas.android.com/tools"-->
@@ -75,3 +74,4 @@
 <!--       android:layout_height="match_parent"/>-->
 
 <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
