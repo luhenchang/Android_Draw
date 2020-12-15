@@ -7,12 +7,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DiscretePathEffect;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 @SuppressLint("AppCompatCustomView")
@@ -141,17 +143,17 @@ public class CorpToView extends ImageView {
         // 初始化裁剪框边框的画笔
         clipRectBorderPaint = new Paint();
         clipRectBorderPaint.setStyle(Style.STROKE);
-        clipRectBorderPaint.setColor(Color.parseColor("#AAFFFFFF"));//#AAFFFFFF
+        clipRectBorderPaint.setColor(Color.parseColor("#AA12ACBA"));//#AAFFFFFF
         clipRectBorderPaint.setStrokeWidth(6f);
 
         // 初始化裁剪框辅助线的画笔
         clipRectGuidelinePaint = new Paint();
-        clipRectGuidelinePaint.setColor(Color.parseColor("#AAFFFFFF"));//#AAFFFFFF
+        clipRectGuidelinePaint.setColor(Color.parseColor("#AA12ACBA"));//#AAFFFFFF
         clipRectGuidelinePaint.setStrokeWidth(1f);
 
         // 初始化裁剪框边框四个角圆圈的画笔
         clipRectCornerPaint = new Paint();
-        clipRectCornerPaint.setColor(Color.parseColor("#AAFFFFFF"));
+        clipRectCornerPaint.setColor(Color.parseColor("#AA12ACBA"));
 
         // 初始化整个View遮罩层的画笔
         maskLayoutPaint = new Paint();
@@ -250,18 +252,89 @@ public class CorpToView extends ImageView {
         // 这里一定要是return true 不然也是无效的
         return true;
     }
+    /**
+     * 按比例缩放图片
+     *
+     * @param origin 原图
+     * @param wratio  比例
+     * @param  hratio 比例
+     * @return 新的bitmap
+     */
+    private Bitmap scaleBitmap(Bitmap origin, float wratio,float hratio,int alpha) {
+        if (origin == null) {
+            return null;
+        }
+        int width = origin.getWidth();
+        int height = origin.getHeight();
+        Matrix matrix = new Matrix();
+        matrix.preScale(wratio, hratio);
+        Bitmap newBM = Bitmap.createBitmap(origin, 0, 0, width, height, matrix, false);
+        if (newBM.equals(origin)) {
+            return newBM;
+        }
+        origin.recycle();
+
+        return rotateBitmap(newBM,alpha);
+
+    }
+    /**
+     * 选择变换
+     *
+     * @param origin 原图
+     * @param alpha  旋转角度，可正可负
+     * @return 旋转后的图片
+     */
+    private Bitmap rotateBitmap(Bitmap origin, float alpha) {
+        if (origin == null) {
+            return null;
+        }
+        int width = origin.getWidth();
+        int height = origin.getHeight();
+        Matrix matrix = new Matrix();
+        matrix.setRotate(alpha);
+        // 围绕原地进行旋转
+        Bitmap newBM = Bitmap.createBitmap(origin, 0, 0, width, height, matrix, false);
+        if (newBM.equals(origin)) {
+            return newBM;
+        }
+        origin.recycle();
+        return newBM;
+    }
 
     /**
      * 在View中显示原图
      * @param picPath 原图的路径
      */
-    public void showImage(ApplicationInfo applicationInfo, String picPath) {
+    public void showImage(Context context,ApplicationInfo applicationInfo, String picPath) {
         this.mImagePath = picPath;
-        int resID = getResources().getIdentifier("path_imag", "drawable", applicationInfo.packageName);
-        mBmpToCrop =  BitmapFactory.decodeResource(getResources(), resID);//BitmapFactory.decodeFile(mImagePath);
+        //本地和其手机内部的
+        int resID = getResources().getIdentifier("haha", "drawable", applicationInfo.packageName);
+        DisplayMetrics displayMetrics= getResources().getDisplayMetrics();
+        int height=displayMetrics.heightPixels;
+        int width=displayMetrics.widthPixels;
+        // mBmpToCrop =  BitmapFactory.decodeResource(getResources(), resID);//BitmapFactory.decodeFile(mImagePath);
+        Bitmap bitmap=  BitmapFactory.decodeResource(getResources(), resID);
+        int origWidth= bitmap.getWidth();
+        int origHeight=bitmap.getHeight();
+        if ((bitmap.getHeight()*1.5f<bitmap.getWidth())&&bitmap.getWidth()>width) {
+            mBmpToCrop = scaleBitmap(bitmap, ((width) / (origHeight * 1.0f)), width / (origHeight * 1.0f),90);
+        }else if(((bitmap.getHeight()*1.5f>=bitmap.getWidth())&&bitmap.getWidth()>width)||(bitmap.getWidth()*1.5f<bitmap.getHeight())){
+            mBmpToCrop = scaleBitmap(bitmap, ((width) / (origWidth * 1.0f)), width / (origWidth * 1.0f),0);
+        }else if(((bitmap.getHeight()*1.5f>=bitmap.getWidth())&&bitmap.getWidth()<width)||((bitmap.getWidth()*1.5f>=bitmap.getHeight())&&bitmap.getHeight()<height)){
+            mBmpToCrop = scaleBitmap(bitmap,1, 1,0);
+        }else{
+            mBmpToCrop = scaleBitmap(bitmap, ((width) / (origWidth * 1.0f)), width / (origWidth * 1.0f),0);
+
+        }
         invalidate();
     }
-
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
     /**
      * 让图片旋转90度
      */

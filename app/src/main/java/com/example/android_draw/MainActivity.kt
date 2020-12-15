@@ -38,7 +38,7 @@ class MainActivity : Activity(), PermissionCallbacks{
     }
 
     override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
-        image.showImage(applicationInfo,CROP_IMAGE_PATH)
+        image.showImage(this,applicationInfo,CROP_IMAGE_PATH)
     }
 
     override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
