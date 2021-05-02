@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LHC_ExpandLinearLayout">
+        <attr name="gravity">
+            <flag name="left" value="0x1" />
+            <flag name="right" value="0x2" />
+            <flag name="top" value="0x4" />
+            <flag name="bottom" value="0x8" />
+        </attr>
+        <attr name="duration" format="integer"/>
+        <attr name="child_rotation" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="LHC_SelectedImageView">
+        <attr name="defaultImag" format="reference" />
+        <attr name="cendefault_img" format="reference" />
+        <attr name="selectedImg" format="reference" />
+        <attr name="animal_duration" format="integer" />
+        <attr name="animal_rotaion_value_start" format="float"/>
+        <attr name="animal_rotaion_value_center" format="float"/>
+        <attr name="animal_rotaion_value_end" format="float"/>
+
+        <attr name="animal_scale_value_start" format="float" />
+        <attr name="animal_scale_value_center" format="float" />
+        <attr name="animal_scale_value_end" format="float" />
+
+        <attr name="animal_type" format="string">
+            <flag name="rotation" value="0x1" />
+            <flag name="scale" value="0x2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="chartView">
+        <attr name="xylinecolor" format="color"/>
+        <attr name="xylinewidth" format="dimension" />
+        <attr name="xytextcolor" format="color"/>
+        <attr name="xytextsize" format="dimension"/>
+        <attr name="linecolor" format="color"/>
+        <attr name="interval" format="dimension"/>
+        <attr name="bgcolor" format="color"/>
+        <attr name="isScroll" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="LHC_Image_View">
+        <attr name="defImag" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="LHC_3D_ImageView">
+        <attr name="rectHeight" format="float"/>
+        <attr name="resouceId"  format="reference|color"/>
+    </declare-styleable>
+</resources>

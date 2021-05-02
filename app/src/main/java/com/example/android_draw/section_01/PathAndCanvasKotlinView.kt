@@ -81,18 +81,11 @@ class PathAndCanvasKotlinView : View {
         //path.offset(200f,250f)
         path.offset(200f,300f,path)
         path.setLastPoint(400f,1300f)
-        var matrix=Matrix()
+        val matrix=Matrix()
         matrix.setTranslate(300f,100f)
         matrix.setScale(0.5f,0.5f)
         path.transform(matrix)
         path.close()
         canvas.drawPath(path, paint)
-
-
-
-
-
-
-
     }
 }

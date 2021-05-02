@@ -1,4 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".MainActivity">
+<!--   <com.example.android_draw.section_01.PaintStudyView-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.view.LHC_Cubic_View-->
+<!--       android:visibility="gone"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="wrap_content"-->
+<!--       tools:ignore="MissingConstraints" />-->
+<!--   <com.example.android_draw.view.LHC_Image_View-->
+<!--       android:visibility="gone"-->
+<!--       android:layout_width="match_parent"-->
+<!--       app:defaultImag="@drawable/wuman"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.view.LHC_Corp_View-->
+<!--       android:visibility="gone"-->
+<!--       android:id="@+id/corp_view"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.view.LHC_wave_View-->
+<!--       android:visibility="gone"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.view.LHC_curve_View-->
+<!--       android:visibility="gone"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="400dp"/>-->
+<!--   <com.example.android_draw.view.line.LHC_Rule_View-->
+<!--       android:visibility="gone"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+
+
+
+
+
+<!--   <com.example.android_draw.view.paint.LHC_Paint_View-->
+<!--       android:visibility="gone"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.view.path.LHC_Path_View-->
+<!--       android:visibility="gone"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.view.paint.LHC_Text_View-->
+<!--       android:gravity="center"-->
+<!--       android:textSize="33sp"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.view.paint.LHC_Text_Example_Two-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.CustomLoadingView-->
+<!--       android:id="@+id/loadView"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.view.worter.LHC_WaterDrop_View-->
+<!--       android:background="@color/gray"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.view.LHC_MaskView-->
+<!--       android:scaleType="centerCrop"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"/>-->
+<!--   <com.example.android_draw.draw_man.LHC_3D_ImageView-->
+<!--       android:id="@+id/ivImage"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="wrap_content"-->
+<!--       android:background="#ffffff"-->
+<!--       android:scaleType="matrix"-->
+<!--       android:layout_alignParentTop="true"-->
+<!--       app:rectHeight="1100"-->
+<!--       app:resouceId="@drawable/dmax" />-->
+   <com.example.android_draw.view.LHC_MediaRecorder_View
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+      <Switch
+          android:id="@+id/forbiddenSwitch"
+          android:layout_width="wrap_content"
+          android:layout_margin="30dp"
+          android:layout_height="wrap_content"
+          android:checked="false"
+          android:thumb="@drawable/switch_thumb"
+          android:track="@drawable/switch_track"/>
+      <Switch
+          android:layout_margin="20dp"
+          android:layout_width="60dp"
+          android:layout_height="22dp"
+          android:layout_marginTop="30dp"
+          android:textOff=""
+          android:textOn=""
+          android:thumb="@drawable/switch_ios_thumb"
+          android:track="@drawable/switch_ios_track_selector" />
+      <androidx.appcompat.widget.LinearLayoutCompat
+          android:background="@drawable/line_shadow_shaper"
+          android:layout_width="match_parent"
+          android:layout_height="300dp"/>
+   </LinearLayout>
+
+
+</RelativeLayout>
+
+<!--
 <android.widget.RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -59,19 +172,4 @@
 
 
 
-</android.widget.RelativeLayout>
-
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".MainActivity">-->
-
-<!--   <com.example.android_draw.section_01.PathAndCanvasKotlinView-->
-<!--       android:layout_width="match_parent"-->
-<!--       android:layout_height="match_parent"/>-->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
-
+</android.widget.RelativeLayout>-->

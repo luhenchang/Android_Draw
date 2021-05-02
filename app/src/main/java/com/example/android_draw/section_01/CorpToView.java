@@ -317,7 +317,7 @@ public class CorpToView extends ImageView {
     public void showImage(Context context,ApplicationInfo applicationInfo, String picPath) {
         this.mImagePath = picPath;
         //本地和其手机内部的
-        int resID = getResources().getIdentifier("wff", "drawable", applicationInfo.packageName);
+        int resID = getResources().getIdentifier("path_imagw", "drawable", applicationInfo.packageName);
         DisplayMetrics displayMetrics= getResources().getDisplayMetrics();
         int height=displayMetrics.heightPixels;
         int width=displayMetrics.widthPixels;
