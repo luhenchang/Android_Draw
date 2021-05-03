@@ -19,8 +19,9 @@ import android.widget.ImageView;
 import com.example.android_draw.R;
 
 /**
- * Created by liuhb on 2019/12/30.
- * 参考：https://github.com/minminaya/CropViewDemo
+ * 路很长
+ * 路很长
+ * ?????
  */
 
 @SuppressLint("AppCompatCustomView")
