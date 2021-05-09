@@ -29,6 +29,7 @@ class MainActivity : Activity(),PermissionCallbacks {
         //loadView.start()Recover
 
     }
+    //我是主分支大哥master
 
 
 
