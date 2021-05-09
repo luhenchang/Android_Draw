@@ -18,6 +18,7 @@ class MainActivity : Activity(),PermissionCallbacks {
         setContentView(R.layout.activity_main)
         //提交账号wangfei44@lenovo.com
 
+
         //横屏设置
         //requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         //image.showImage(this,applicationInfo,CROP_IMAGE_PATH)
