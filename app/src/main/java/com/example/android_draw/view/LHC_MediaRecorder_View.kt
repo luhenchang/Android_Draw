@@ -38,18 +38,22 @@ class LHC_MediaRecorder_View @JvmOverloads constructor(
         //1.变换绘制坐标轴
         canvas.scale(1f,-1f)
         canvas.translate(marginHorizontalLR,-height/2f)
-        val xPath=Path()
-        xPath.moveTo(0f,0f)
-        //2.绘制x轴
-        xPath.lineTo(width-2f*horizontalFadingEdgeLength,0f)
-        canvas.drawPath(xPath,paintOfAxis)
-        canvas.drawCircle(0f,0f,100f,paintOfAxis)
-        //3.绘制 Sinx
-        //4.总长度为 width - marginHorizontalLR*2 是总的x轴长度
-        allWidthPx = width - marginHorizontalLR*2
-        //5.
-        pintArrayList.forEach { it
-            canvas.drawPoint(it.x.toFloat(),it.y,paintOfAxis)
+//        val xPath=Path()
+//        xPath.moveTo(0f,0f)
+//        //2.绘制x轴
+//        xPath.lineTo(width-2f*horizontalFadingEdgeLength,0f)
+//        canvas.drawPath(xPath,paintOfAxis)
+//        canvas.drawCircle(0f,0f,100f,paintOfAxis)
+//        //3.绘制 Sinx
+//        //4.总长度为 width - marginHorizontalLR*2 是总的x轴长度
+//        allWidthPx = width - marginHorizontalLR*2
+//        //5.
+//        pintArrayList.forEach { it
+//            canvas.drawPoint(it.x.toFloat(),it.y,paintOfAxis)
+//        }
+        for(index in 0..12){
+            canvas.rotate(30f)
+            canvas.drawCircle(0f,-100f,10f,paintOfAxis)
         }
 
 

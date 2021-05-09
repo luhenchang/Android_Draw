@@ -9,6 +9,9 @@ import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
 import pub.devrel.easypermissions.EasyPermissions.PermissionCallbacks
 
+/**
+ *
+ */
 class MainActivity : Activity(),PermissionCallbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +23,7 @@ class MainActivity : Activity(),PermissionCallbacks {
         //corp_view.getClipRectImage()
         //gridFramgent
         //view加载动画开始
-        //loadView.start()
+        //loadView.start()Recover
 
     }
 

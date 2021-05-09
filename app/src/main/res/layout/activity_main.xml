@@ -81,32 +81,32 @@
    <com.example.android_draw.view.LHC_MediaRecorder_View
        android:layout_width="match_parent"
        android:layout_height="match_parent"/>
-   <LinearLayout
-       android:orientation="vertical"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-      <Switch
-          android:id="@+id/forbiddenSwitch"
-          android:layout_width="wrap_content"
-          android:layout_margin="30dp"
-          android:layout_height="wrap_content"
-          android:checked="false"
-          android:thumb="@drawable/switch_thumb"
-          android:track="@drawable/switch_track"/>
-      <Switch
-          android:layout_margin="20dp"
-          android:layout_width="60dp"
-          android:layout_height="22dp"
-          android:layout_marginTop="30dp"
-          android:textOff=""
-          android:textOn=""
-          android:thumb="@drawable/switch_ios_thumb"
-          android:track="@drawable/switch_ios_track_selector" />
-      <androidx.appcompat.widget.LinearLayoutCompat
-          android:background="@drawable/line_shadow_shaper"
-          android:layout_width="match_parent"
-          android:layout_height="300dp"/>
-   </LinearLayout>
+<!--   <LinearLayout-->
+<!--       android:orientation="vertical"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="wrap_content">-->
+<!--      <Switch-->
+<!--          android:id="@+id/forbiddenSwitch"-->
+<!--          android:layout_width="wrap_content"-->
+<!--          android:layout_margin="30dp"-->
+<!--          android:layout_height="wrap_content"-->
+<!--          android:checked="false"-->
+<!--          android:thumb="@drawable/switch_thumb"-->
+<!--          android:track="@drawable/switch_track"/>-->
+<!--      <Switch-->
+<!--          android:layout_margin="20dp"-->
+<!--          android:layout_width="60dp"-->
+<!--          android:layout_height="22dp"-->
+<!--          android:layout_marginTop="30dp"-->
+<!--          android:textOff=""-->
+<!--          android:textOn=""-->
+<!--          android:thumb="@drawable/switch_ios_thumb"-->
+<!--          android:track="@drawable/switch_ios_track_selector" />-->
+<!--      <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--          android:background="@drawable/line_shadow_shaper"-->
+<!--          android:layout_width="match_parent"-->
+<!--          android:layout_height="300dp"/>-->
+<!--   </LinearLayout>-->
 
 
 </RelativeLayout>
