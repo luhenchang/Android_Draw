@@ -32,6 +32,7 @@ class MainActivity : Activity(),PermissionCallbacks {
 
 //luhenchang_branch   1.第一次提交
 
+//luhenchang_branch   1.第二次提交
 
 
 
@@ -50,7 +51,11 @@ class MainActivity : Activity(),PermissionCallbacks {
 
 
 
-//    fun rotate90(view: View?) {
+
+
+
+
+    //    fun rotate90(view: View?) {
 //        image.rotate90()
 //    }
 //    /**
