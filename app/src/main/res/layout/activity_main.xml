@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#000000"
     tools:context=".MainActivity">
+   <com.example.android_draw.view.GriendLineayoutTestView
+       android:visibility="gone"
+       android:background="@drawable/jingyu"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
 <!--   <com.example.android_draw.section_01.PaintStudyView-->
 <!--       android:layout_width="match_parent"-->
 <!--       android:layout_height="match_parent"/>-->
@@ -107,6 +112,70 @@
 <!--          android:layout_width="match_parent"-->
 <!--          android:layout_height="300dp"/>-->
 <!--   </LinearLayout>-->
+   <com.example.android_draw.view.AnimBar
+       android:id="@+id/popVoiceLineView"
+       android:layout_width="300dp"
+       android:layout_height="40dp"
+       android:layout_centerInParent="true"
+       android:layout_marginTop="0dp" />
+
+   <TextView
+       android:textColor="#ff00ff"
+       android:layout_centerHorizontal="true"
+       android:layout_below="@+id/popVoiceLineView"
+       android:padding="20dp"
+       android:text="回放"
+       android:textSize="20dp"
+       android:id="@+id/reset"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+
+   <LinearLayout
+       android:gravity="center_horizontal"
+       android:layout_marginTop="160dp"
+       android:layout_below="@+id/popVoiceLineView"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+      <Button
+          android:padding="20dp"
+          android:text="录音"
+          android:id="@+id/start"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+      <Button
+          android:padding="20dp"
+          android:text="停止"
+          android:id="@+id/stop"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+
+
+   </LinearLayout>
+   <RelativeLayout
+       android:visibility="gone"
+       android:layout_centerInParent="true"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+      <ImageView
+          android:layout_centerInParent="true"
+          android:id="@+id/animalImge"
+          android:scaleType="fitXY"
+          android:layout_width="280dp"
+          android:layout_height="280dp"/>
+      <ImageView
+          android:layout_centerInParent="true"
+          android:src="@drawable/lock_screen_animation_bg"
+          android:scaleType="fitXY"
+          android:layout_width="110dp"
+          android:layout_height="110dp"/>
+      <TextView
+          android:layout_centerInParent="true"
+          android:text="稍后提醒"
+          android:textColor="#ffffff"
+          android:textSize="16dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+   </RelativeLayout>
 
 
 </RelativeLayout>

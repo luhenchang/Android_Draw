@@ -6,4 +6,9 @@
     <color name="gray">#AA12ACBA</color>
     <color name="white">#FFFFFF</color>
 
+    <color name="voice_color1">#6A55FF</color>
+    <color name="voice_color2">#51CCF8</color>
+    <color name="voice_color3">#6A55FF</color>
+    <color name="voice_color4">#48ECF5</color>
+    <color name="voice_color5">#704FFF</color>
 </resources>

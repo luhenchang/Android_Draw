@@ -81,8 +81,6 @@ class LHC_Paint_View @JvmOverloads constructor(
         //discretePathEffectStudy(canvas)
 
 
-
-
       //案例开始绘制
       //1.cnavas坐标系的变换绘制
       canvasChangeSave(canvas)
