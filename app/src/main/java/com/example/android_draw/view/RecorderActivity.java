@@ -10,5 +10,8 @@ package com.example.android_draw.view;
  */
 public class RecorderActivity {
     //luhenchang_branch 枝提交
+<<<<<<< HEAD
     //master 第一次修改 需要 合并到 luhenchang_branch
+=======
+>>>>>>> 2988452... [Android_Draw] 录音机快捷菜单提交
 }
