@@ -676,4 +676,5 @@ public class LHC_Corp_View extends ImageView {
             clipRect.bottom = clipRect.top + 2 * BORDER_CORNER_LENGTH;
         }
     }
+    //修改了部分内容解决完成之后需要cherry-pick到luhenchang_branch
 }
